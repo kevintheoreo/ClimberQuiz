@@ -1,0 +1,23 @@
+{
+  "id": "sloper-specialist",
+  "icon": "🐍",
+  "name": "Sloper Specialist",
+  "tagline": "Trust the friction.",
+  "flavorText": "Everyone else avoids the featureless blob on the wall. You seek it out. Open-hand strength, body tension, and sheer stubbornness let you stick to holds that shouldn't work at all.",
+  "favouriteHold": "The one everyone else hates",
+  "naturalHabitat": "Vertical wall",
+  "superpower": "Open-hand strength",
+  "weakness": "Tiny crimps",
+  "rarity": "uncommon",
+  "rivalArchetypeId": "crimp-goblin",
+  "villainLine": "They think a two-millimeter edge is a jug. You think that's a great way to explode a pulley.",
+  "partnerLine": "You bring the friction, they bring the finger strength — between you, nothing on the wall is safe.",
+  "idealVector": {
+    "POWER": 50,
+    "TECHNIQUE": 70,
+    "ANALYSIS": 55,
+    "COMMITMENT": 55,
+    "CHAOS": 25,
+    "GRADE_EGO": 35
+  }
+}

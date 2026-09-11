@@ -1,0 +1,23 @@
+{
+  "id": "project-addict",
+  "icon": "💀",
+  "name": "Project Addict",
+  "tagline": "One more go.",
+  "flavorText": "You have spent entire sessions on a single move and called it a good day. Falling isn't discouraging, it's data. You will absolutely be the last person to leave the gym tonight.",
+  "favouriteHold": "The hold you keep falling off",
+  "naturalHabitat": "Same problem, 90 minutes later",
+  "superpower": "Persistence",
+  "weakness": "Knowing when to stop",
+  "rarity": "common",
+  "rivalArchetypeId": "rest-day-warrior",
+  "villainLine": "They've talked about training for this move more than you've actually tried it. You have no patience for that.",
+  "partnerLine": "You bring the relentless attempts, they bring the recovery plan you'll never actually follow — a functional, if chaotic, pair.",
+  "idealVector": {
+    "POWER": 55,
+    "TECHNIQUE": 50,
+    "ANALYSIS": 45,
+    "COMMITMENT": 95,
+    "CHAOS": 15,
+    "GRADE_EGO": 60
+  }
+}

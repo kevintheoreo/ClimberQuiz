@@ -1,0 +1,23 @@
+{
+  "id": "movement-nerd",
+  "icon": "🧗",
+  "name": "Movement Nerd",
+  "tagline": "That beta was disgusting.",
+  "flavorText": "You don't just want to send it, you want to send it beautifully. Ugly, thrutchy beta physically pains you, and you'll happily burn extra attempts chasing the sequence that actually looks and feels good.",
+  "favouriteHold": "Weird volumes",
+  "naturalHabitat": "Anything with creative movement",
+  "superpower": "Body awareness",
+  "weakness": "Ugly beta",
+  "rarity": "uncommon",
+  "rivalArchetypeId": "sandbagger-supreme",
+  "villainLine": "They'll grunt through the ugliest possible beta and then claim they barely tried. It's an aesthetic crime.",
+  "partnerLine": "You bring the style, they bring the quietly terrifying ability — an oddly perfect pairing.",
+  "idealVector": {
+    "POWER": 45,
+    "TECHNIQUE": 85,
+    "ANALYSIS": 60,
+    "COMMITMENT": 50,
+    "CHAOS": 35,
+    "GRADE_EGO": 15
+  }
+}

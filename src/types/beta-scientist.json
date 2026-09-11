@@ -1,0 +1,23 @@
+{
+  "id": "beta-scientist",
+  "icon": "🧠",
+  "name": "Beta Scientist",
+  "tagline": "Wait. I have a theory.",
+  "flavorText": "You will stand under a problem for ten minutes narrating the exact sequence before you've touched a single hold. Movement is just applied physics, and you intend to solve it before you commit.",
+  "favouriteHold": "Whatever the beta requires",
+  "naturalHabitat": "Under the wall, analyzing",
+  "superpower": "Problem solving",
+  "weakness": "Actually starting the problem",
+  "rarity": "rare",
+  "rivalArchetypeId": "dyno-gremlin",
+  "villainLine": "They just jump at it with zero plan. It offends you on a spiritual level.",
+  "partnerLine": "You map out the beta, they supply the commitment to actually send it — a perfect division of labor.",
+  "idealVector": {
+    "POWER": 30,
+    "TECHNIQUE": 55,
+    "ANALYSIS": 95,
+    "COMMITMENT": 45,
+    "CHAOS": 10,
+    "GRADE_EGO": 40
+  }
+}

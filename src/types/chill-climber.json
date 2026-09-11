@@ -1,0 +1,23 @@
+{
+  "id": "chill-climber",
+  "icon": "🦥",
+  "name": "Chill Climber",
+  "tagline": "Grades are temporary. Good vibes are forever.",
+  "flavorText": "You're here for the session, not the scoreboard. You'll happily jump on whatever looks fun, cheer for everyone else's send, and leave the gym in a better mood than you arrived — no PB required.",
+  "favouriteHold": "Whatever feels nice",
+  "naturalHabitat": "The social area",
+  "superpower": "Having fun",
+  "weakness": "Training plans",
+  "rarity": "common",
+  "rivalArchetypeId": "grade-goblin",
+  "villainLine": "They can't enjoy a climb without knowing the number first. You genuinely don't get it.",
+  "partnerLine": "You keep the session fun, they keep it motivated — you balance each other out more than either of you admits.",
+  "idealVector": {
+    "POWER": 40,
+    "TECHNIQUE": 50,
+    "ANALYSIS": 25,
+    "COMMITMENT": 30,
+    "CHAOS": 55,
+    "GRADE_EGO": 15
+  }
+}

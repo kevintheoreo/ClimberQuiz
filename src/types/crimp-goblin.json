@@ -1,0 +1,23 @@
+{
+  "id": "crimp-goblin",
+  "icon": "🐒",
+  "name": "Crimp Goblin",
+  "tagline": "If it fits three fingers, it's a jug.",
+  "flavorText": "You don't necessarily need better beta. You need stronger fingers and questionable decision-making. Tiny edges call to you like nothing else, and you will happily turn your fingertips into sandpaper chasing them.",
+  "favouriteHold": "Tiny crimp",
+  "naturalHabitat": "Steep overhang",
+  "superpower": "Finger strength",
+  "weakness": "Slopers",
+  "rarity": "common",
+  "rivalArchetypeId": "sloper-specialist",
+  "villainLine": "They don't understand why you're pulling so hard on a hold with no edge at all.",
+  "partnerLine": "You bring the finger strength, they bring the friction — between you, nothing on the wall is safe.",
+  "idealVector": {
+    "POWER": 80,
+    "TECHNIQUE": 45,
+    "ANALYSIS": 35,
+    "COMMITMENT": 75,
+    "CHAOS": 30,
+    "GRADE_EGO": 65
+  }
+}

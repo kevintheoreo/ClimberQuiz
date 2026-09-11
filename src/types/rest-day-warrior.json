@@ -1,0 +1,23 @@
+{
+  "id": "rest-day-warrior",
+  "icon": "🛋️",
+  "name": "Rest-Day Warrior",
+  "tagline": "Recovery is part of training.",
+  "flavorText": "You have an incredibly detailed training plan, several climbing YouTube channels memorized, and extremely strong opinions on periodization. Whether you actually do any of it is a separate question entirely.",
+  "favouriteHold": "The couch",
+  "naturalHabitat": "Watching climbing videos",
+  "superpower": "Knowing exactly what they should train",
+  "weakness": "Actually doing it",
+  "rarity": "common",
+  "rivalArchetypeId": "project-addict",
+  "villainLine": "They'll throw themselves at the same move for two hours with zero plan. You find it exhausting to watch.",
+  "partnerLine": "You bring the recovery plan you'll never actually follow, they bring the relentless attempts — a functional, if chaotic, pair.",
+  "idealVector": {
+    "POWER": 20,
+    "TECHNIQUE": 30,
+    "ANALYSIS": 70,
+    "COMMITMENT": 10,
+    "CHAOS": 15,
+    "GRADE_EGO": 45
+  }
+}

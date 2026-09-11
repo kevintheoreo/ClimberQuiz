@@ -1,0 +1,23 @@
+{
+  "id": "sandbagger-supreme",
+  "icon": "👑",
+  "name": "Sandbagger Supreme",
+  "tagline": "I'm honestly not that strong.",
+  "flavorText": "You will call yourself weak while casually flashing something everyone else has been projecting for weeks. Whether this is modesty or a long con is genuinely unclear, even to you.",
+  "favouriteHold": "Whatever happens to be on the wall",
+  "naturalHabitat": "\"Just warming up\"",
+  "superpower": "Making hard climbs look casual",
+  "weakness": "Admitting their grade",
+  "rarity": "very-rare",
+  "rivalArchetypeId": "movement-nerd",
+  "villainLine": "They'll analyze exactly why your \"warm-up\" send worked. You'd really rather they didn't.",
+  "partnerLine": "They bring the style, you bring the quietly terrifying ability — an oddly perfect pairing.",
+  "idealVector": {
+    "POWER": 70,
+    "TECHNIQUE": 75,
+    "ANALYSIS": 50,
+    "COMMITMENT": 70,
+    "CHAOS": 40,
+    "GRADE_EGO": 5
+  }
+}

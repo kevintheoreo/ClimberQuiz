@@ -1,0 +1,23 @@
+{
+  "id": "campus-ape",
+  "icon": "🦍",
+  "name": "Campus Ape",
+  "tagline": "Feet are optional.",
+  "flavorText": "Why find a foothold when you can just pull harder? You climb like the wall owes you money — explosive, loud, and allergic to anything that requires patience or precision.",
+  "favouriteHold": "Jugs",
+  "naturalHabitat": "Overhang",
+  "superpower": "Raw power",
+  "weakness": "Technical slab",
+  "rarity": "uncommon",
+  "rivalArchetypeId": "slab-philosopher",
+  "villainLine": "They stand there reading footwork for five minutes. You'd have just campused it by now.",
+  "partnerLine": "You provide the power, they provide the feet — together you somehow finish the problem.",
+  "idealVector": {
+    "POWER": 95,
+    "TECHNIQUE": 20,
+    "ANALYSIS": 15,
+    "COMMITMENT": 55,
+    "CHAOS": 60,
+    "GRADE_EGO": 55
+  }
+}

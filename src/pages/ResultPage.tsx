@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { QUESTIONS } from '../quiz/questions'
+import { scoreQuiz } from '../scoring/scoreQuiz'
 import type { QuizAnswers } from '../types/quiz'
 
 interface ResultLocationState {
@@ -14,7 +14,7 @@ function ResultPage() {
     return (
       <section className="page page-result">
         <h1>No Result Yet</h1>
-        <p>Take the quiz first to see your raw answers here.</p>
+        <p>Take the quiz first to see your archetype here.</p>
         <Link to="/quiz" className="btn btn-primary">
           Start Quiz
         </Link>
@@ -22,22 +22,15 @@ function ResultPage() {
     )
   }
 
+  const { archetype, aura } = scoreQuiz(answers)
+
   return (
     <section className="page page-result">
-      <h1>Your Answers</h1>
-      <p>Archetype matching lands in Phase 2 — here's what you picked:</p>
-      <ul className="raw-answers">
-        {QUESTIONS.map((question) => {
-          const answerId = answers[question.id]
-          const answer = question.answers.find((a) => a.id === answerId)
-          return (
-            <li key={question.id}>
-              <strong>{question.prompt}</strong>
-              <span>{answer ? answer.text : 'No answer'}</span>
-            </li>
-          )
-        })}
-      </ul>
+      <span className="result-icon">{archetype.icon}</span>
+      <h1>You're a {archetype.name}</h1>
+      <p className="result-tagline">&ldquo;{archetype.tagline}&rdquo;</p>
+      <p className="result-aura">Climbing Aura: {aura}</p>
+      <p>{archetype.flavorText}</p>
       <Link to="/quiz" className="btn btn-primary">
         Retake Quiz
       </Link>

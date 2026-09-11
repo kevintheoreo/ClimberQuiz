@@ -1,0 +1,23 @@
+{
+  "id": "grade-goblin",
+  "icon": "🏆",
+  "name": "Grade Goblin",
+  "tagline": "What grade is it?",
+  "flavorText": "You don't climb things, you collect them. The number matters — a lot — and you will absolutely mention your hardest send within the first five minutes of meeting someone at the gym.",
+  "favouriteHold": "The finishing hold",
+  "naturalHabitat": "The hardest problem in the gym",
+  "superpower": "Competition",
+  "weakness": "Seeing an easier climb",
+  "rarity": "common",
+  "rivalArchetypeId": "chill-climber",
+  "villainLine": "They'll happily flail on a V0 for fun. You physically cannot understand the appeal.",
+  "partnerLine": "You keep it motivated, they keep it fun — you balance each other out more than either of you admits.",
+  "idealVector": {
+    "POWER": 60,
+    "TECHNIQUE": 45,
+    "ANALYSIS": 30,
+    "COMMITMENT": 65,
+    "CHAOS": 20,
+    "GRADE_EGO": 95
+  }
+}

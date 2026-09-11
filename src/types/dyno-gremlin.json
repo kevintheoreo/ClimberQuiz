@@ -1,0 +1,23 @@
+{
+  "id": "dyno-gremlin",
+  "icon": "🚀",
+  "name": "Dyno Gremlin",
+  "tagline": "If you can't reach it, jump.",
+  "flavorText": "Static movement is for people with more patience than you. If a hold is out of reach, that's not a beta problem, that's a momentum problem — and you have never met a gap you wouldn't launch yourself across.",
+  "favouriteHold": "The next hold",
+  "naturalHabitat": "Anything requiring momentum",
+  "superpower": "Explosiveness",
+  "weakness": "Static climbing",
+  "rarity": "uncommon",
+  "rivalArchetypeId": "beta-scientist",
+  "villainLine": "They spend ten minutes theorizing a move you'd have already jumped for three times.",
+  "partnerLine": "They supply the plan, you supply the commitment to actually send it — a perfect division of labor.",
+  "idealVector": {
+    "POWER": 75,
+    "TECHNIQUE": 40,
+    "ANALYSIS": 20,
+    "COMMITMENT": 85,
+    "CHAOS": 100,
+    "GRADE_EGO": 50
+  }
+}
