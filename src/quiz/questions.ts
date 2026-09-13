@@ -48,7 +48,7 @@ export const QUESTIONS: QuizQuestion[] = [
   },
   {
     id: 'q5',
-    prompt: "You're on a highball and the next move feels sketchy.",
+    prompt: "You're on the top section and the next move feels sketchy.",
     answers: [
       { id: 'a', text: "Commit. You're already up there." },
       { id: 'b', text: 'Find a more secure foot position first.' },
@@ -60,7 +60,7 @@ export const QUESTIONS: QuizQuestion[] = [
     id: 'q6',
     prompt: 'What does a perfect climbing session look like?',
     answers: [
-      { id: 'a', text: 'Sending a new personal best' },
+      { id: 'a', text: "Beating my friend's project on my first try" },
       { id: 'b', text: "Finally sending a problem I've been projecting" },
       { id: 'c', text: 'Trying lots of interesting movement' },
       { id: 'd', text: 'Climbing with friends and having a great time' },
@@ -78,12 +78,12 @@ export const QUESTIONS: QuizQuestion[] = [
   },
   {
     id: 'q8',
-    prompt: "Someone asks what you're training right now.",
+    prompt: "You've got the gym to yourself for one more hour before close. What are you doing?",
     answers: [
-      { id: 'a', text: 'Finger strength' },
-      { id: 'b', text: 'Technique and footwork' },
-      { id: 'c', text: 'Power' },
-      { id: 'd', text: '"Training? I just climb."' },
+      { id: 'a', text: 'Campusing and power moves until my arms give out.' },
+      { id: 'b', text: "Drilling footwork until it feels automatic." },
+      { id: 'c', text: "Running my project's crux over and over." },
+      { id: 'd', text: 'Just climbing whatever looks fun.' },
     ],
   },
   {
@@ -100,10 +100,10 @@ export const QUESTIONS: QuizQuestion[] = [
     id: 'q10',
     prompt: "Be honest. What's your biggest climbing weakness?",
     answers: [
-      { id: 'a', text: 'I rely on strength too much.' },
-      { id: 'b', text: 'I overthink everything.' },
-      { id: 'c', text: 'I keep trying when I should rest.' },
-      { id: 'd', text: 'I probably care too much about the grade.' },
+      { id: 'a', text: 'Slabs. I trust the friction about as much as it trusts me.' },
+      { id: 'b', text: 'Crimps. My fingers ghost me halfway through the move.' },
+      { id: 'c', text: 'Slopers. I commit my whole body and still lose the fight.' },
+      { id: 'd', text: 'Dynos. I psych myself up and then just... don\'t.' },
     ],
   },
 ]

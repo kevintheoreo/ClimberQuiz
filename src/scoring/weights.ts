@@ -62,9 +62,9 @@ export const ANSWER_WEIGHTS: Record<string, Record<string, AnswerWeights>> = {
     d: { CHAOS: 1, GRADE_EGO: -1, COMMITMENT: -1 },
   },
   q10: {
-    a: { POWER: 3, TECHNIQUE: -1 },
-    b: { ANALYSIS: 3, COMMITMENT: -1 },
-    c: { COMMITMENT: 2, CHAOS: 1, ANALYSIS: -1 },
-    d: { GRADE_EGO: 3 },
+    a: { COMMITMENT: -2, TECHNIQUE: -1 },
+    b: { POWER: -2, GRADE_EGO: -1 },
+    c: { TECHNIQUE: -2, ANALYSIS: -1 },
+    d: { CHAOS: -3, COMMITMENT: -1 },
   },
 }
