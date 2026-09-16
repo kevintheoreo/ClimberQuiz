@@ -13,11 +13,11 @@
   "villainLine": "They skip the feet entirely. You genuinely don't understand how they're still on the wall.",
   "partnerLine": "You provide the precision, they provide the power — together you cover every angle in the gym.",
   "idealVector": {
-    "POWER": 25,
-    "TECHNIQUE": 95,
-    "ANALYSIS": 75,
-    "COMMITMENT": 60,
-    "CHAOS": 20,
+    "POWER": 30,
+    "TECHNIQUE": 75,
+    "ANALYSIS": 65,
+    "COMMITMENT": 55,
+    "CHAOS": 25,
     "GRADE_EGO": 35
   }
 }

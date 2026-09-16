@@ -17,6 +17,22 @@ export type Aura = (typeof AURAS)[number]
 
 export type Rarity = 'common' | 'uncommon' | 'rare' | 'very-rare'
 
+export const RARITY_LABELS: Record<Rarity, string> = {
+  common: 'Common',
+  uncommon: 'Uncommon',
+  rare: 'Rare',
+  'very-rare': 'Very Rare',
+}
+
+export const DIMENSION_LABELS: Record<Dimension, string> = {
+  POWER: 'Power',
+  TECHNIQUE: 'Technique',
+  ANALYSIS: 'Beta Brain',
+  COMMITMENT: 'Grit',
+  CHAOS: 'Chaos',
+  GRADE_EGO: 'Grade Ego',
+}
+
 export interface ArchetypeContent {
   id: string
   icon: string

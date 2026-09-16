@@ -13,11 +13,11 @@
   "villainLine": "They don't understand why you're pulling so hard on a hold with no edge at all.",
   "partnerLine": "You bring the finger strength, they bring the friction — between you, nothing on the wall is safe.",
   "idealVector": {
-    "POWER": 80,
-    "TECHNIQUE": 45,
-    "ANALYSIS": 35,
+    "POWER": 85,
+    "TECHNIQUE": 40,
+    "ANALYSIS": 30,
     "COMMITMENT": 75,
-    "CHAOS": 30,
-    "GRADE_EGO": 65
+    "CHAOS": 25,
+    "GRADE_EGO": 55
   }
 }

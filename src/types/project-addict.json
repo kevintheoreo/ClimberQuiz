@@ -16,8 +16,8 @@
     "POWER": 55,
     "TECHNIQUE": 50,
     "ANALYSIS": 45,
-    "COMMITMENT": 95,
-    "CHAOS": 15,
+    "COMMITMENT": 80,
+    "CHAOS": 30,
     "GRADE_EGO": 60
   }
 }

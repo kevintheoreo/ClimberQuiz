@@ -14,10 +14,10 @@
   "partnerLine": "They bring the style, you bring the quietly terrifying ability — an oddly perfect pairing.",
   "idealVector": {
     "POWER": 70,
-    "TECHNIQUE": 75,
+    "TECHNIQUE": 70,
     "ANALYSIS": 50,
-    "COMMITMENT": 70,
+    "COMMITMENT": 65,
     "CHAOS": 40,
-    "GRADE_EGO": 5
+    "GRADE_EGO": 10
   }
 }

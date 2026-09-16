@@ -28,7 +28,7 @@ Implementation phases derived from [PRD.md](PRD.md). Each phase should be indepe
 
 **Done when:** Completing the quiz deterministically returns a matched archetype + aura from real content.
 
-## Phase 3 — Result Page
+## Phase 3 — Result Page ✅
 
 - Build full result page per §8: stat bars, climbing profile, rarity badge, climbing villain, climbing partner, flavor text.
 - Wire "Retake Quiz" action.

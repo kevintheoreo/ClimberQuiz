@@ -13,11 +13,11 @@
   "villainLine": "They think a two-millimeter edge is a jug. You think that's a great way to explode a pulley.",
   "partnerLine": "You bring the friction, they bring the finger strength — between you, nothing on the wall is safe.",
   "idealVector": {
-    "POWER": 50,
+    "POWER": 55,
     "TECHNIQUE": 70,
-    "ANALYSIS": 55,
-    "COMMITMENT": 55,
-    "CHAOS": 25,
-    "GRADE_EGO": 35
+    "ANALYSIS": 45,
+    "COMMITMENT": 60,
+    "CHAOS": 20,
+    "GRADE_EGO": 30
   }
 }

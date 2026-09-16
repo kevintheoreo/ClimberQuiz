@@ -15,9 +15,9 @@
   "idealVector": {
     "POWER": 40,
     "TECHNIQUE": 50,
-    "ANALYSIS": 25,
-    "COMMITMENT": 30,
-    "CHAOS": 55,
-    "GRADE_EGO": 15
+    "ANALYSIS": 15,
+    "COMMITMENT": 25,
+    "CHAOS": 65,
+    "GRADE_EGO": 5
   }
 }

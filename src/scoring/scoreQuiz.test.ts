@@ -80,4 +80,44 @@ describe('scoreQuiz', () => {
       expect(count / total).toBeLessThan(0.7)
     }
   })
+
+  it(
+    'gives every archetype a meaningful, bounded share across the full answer space',
+    () => {
+      // Exhaustively enumerate all 4^10 answer combinations to get the true distribution,
+      // rather than relying on a sample. Guards against ideal vectors clustering too tightly
+      // around the reachable score space's center (which previously let chill-climber/
+      // sloper-specialist dominate ~59% of results while several archetypes were <1%).
+      const counts = new Map<string, number>()
+      let total = 0
+      const idxs = new Array(QUESTIONS.length).fill(0)
+
+      for (;;) {
+        const answers: QuizAnswers = {}
+        for (let i = 0; i < QUESTIONS.length; i++) {
+          answers[QUESTIONS[i].id] = ANSWER_IDS[idxs[i]]
+        }
+        const result = scoreQuiz(answers)
+        counts.set(result.archetype.id, (counts.get(result.archetype.id) ?? 0) + 1)
+        total++
+
+        let pos = idxs.length - 1
+        while (pos >= 0) {
+          idxs[pos]++
+          if (idxs[pos] < ANSWER_IDS.length) break
+          idxs[pos] = 0
+          pos--
+        }
+        if (pos < 0) break
+      }
+
+      expect(counts.size).toBe(ARCHETYPES.length)
+      for (const archetype of ARCHETYPES) {
+        const share = (counts.get(archetype.id) ?? 0) / total
+        expect(share, `${archetype.id} share was ${(share * 100).toFixed(2)}%`).toBeGreaterThan(0.005)
+        expect(share, `${archetype.id} share was ${(share * 100).toFixed(2)}%`).toBeLessThan(0.2)
+      }
+    },
+    15000,
+  )
 })

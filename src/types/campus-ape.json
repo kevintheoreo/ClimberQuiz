@@ -14,10 +14,10 @@
   "partnerLine": "You provide the power, they provide the feet — together you somehow finish the problem.",
   "idealVector": {
     "POWER": 95,
-    "TECHNIQUE": 20,
-    "ANALYSIS": 15,
+    "TECHNIQUE": 15,
+    "ANALYSIS": 10,
     "COMMITMENT": 55,
-    "CHAOS": 60,
+    "CHAOS": 65,
     "GRADE_EGO": 55
   }
 }
