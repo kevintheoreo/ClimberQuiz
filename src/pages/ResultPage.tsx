@@ -4,6 +4,7 @@ import { scoreQuiz } from '../scoring/scoreQuiz'
 import { ARCHETYPES_BY_ID } from '../types/archetypes'
 import { DIMENSIONS, DIMENSION_LABELS, RARITY_LABELS } from '../types/archetype'
 import type { QuizAnswers } from '../types/quiz'
+import { buildChallengeUrl } from '../sharing/challengeLink'
 import StatBar from '../components/StatBar'
 
 interface ResultLocationState {
@@ -20,6 +21,7 @@ function ResultPage() {
   const location = useLocation()
   const answers = (location.state as ResultLocationState | null)?.answers
   const [accuracyFeedback, setAccuracyFeedback] = useState<string | null>(null)
+  const [linkCopied, setLinkCopied] = useState(false)
 
   if (!answers) {
     return (
@@ -40,6 +42,18 @@ function ResultPage() {
     setAccuracyFeedback(id)
     // Local-only for now; wired to real analytics in Phase 7.
     console.info('[accuracy-feedback]', { archetypeId: archetype.id, feedback: id })
+  }
+
+  async function handleCopyLink() {
+    const url = buildChallengeUrl({ archetypeId: archetype.id })
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable')
+      await navigator.clipboard.writeText(url)
+      setLinkCopied(true)
+      window.setTimeout(() => setLinkCopied(false), 2000)
+    } catch {
+      window.prompt('Copy your challenge link:', url)
+    }
   }
 
   return (
@@ -119,9 +133,14 @@ function ResultPage() {
         {accuracyFeedback && <p className="accuracy-feedback-thanks">Thanks for the feedback!</p>}
       </div>
 
-      <Link to="/quiz" className="btn btn-primary">
-        Retake Quiz
-      </Link>
+      <div className="result-actions">
+        <button type="button" className="btn btn-secondary" onClick={handleCopyLink}>
+          {linkCopied ? 'Link Copied!' : 'Copy Link'}
+        </button>
+        <Link to="/quiz" className="btn btn-primary">
+          Retake Quiz
+        </Link>
+      </div>
     </section>
   )
 }

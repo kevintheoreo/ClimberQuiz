@@ -44,7 +44,7 @@ Implementation phases derived from [PRD.md](PRD.md). Each phase should be indepe
 
 **Done when:** User can download or share a correctly rendered result image from the result page.
 
-## Phase 5 — Referral / Challenge Links
+## Phase 5 — Referral / Challenge Links ✅
 
 - Implement URL-encoding of result state (archetype id, optional name) per §10.
 - Build the "challenge" landing view: "{Name} is a CRIMP GOBLIN — think you're different?" entry point that routes into the quiz.

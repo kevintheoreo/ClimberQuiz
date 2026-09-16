@@ -311,6 +311,17 @@
   font-weight: 700;
 }
 
+.result-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-challenge {
+  max-width: 640px;
+}
+
 @media (max-width: 520px) {
   .profile-list,
   .callout-grid {
