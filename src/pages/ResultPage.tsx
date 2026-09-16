@@ -26,8 +26,8 @@ function ResultPage() {
   if (!answers) {
     return (
       <section className="page page-result">
-        <h1>No Result Yet</h1>
-        <p>Take the quiz first to see your archetype here.</p>
+        <h1>No Send Yet</h1>
+        <p>You haven't climbed this route yet — take the quiz to find your archetype.</p>
         <Link to="/quiz" className="btn btn-primary">
           Start Quiz
         </Link>

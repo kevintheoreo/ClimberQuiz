@@ -52,7 +52,7 @@ Implementation phases derived from [PRD.md](PRD.md). Each phase should be indepe
 
 **Done when:** A shared link opens directly into the challenge view and funnels a new user into the quiz.
 
-## Phase 6 — Visual Polish & Mascots
+## Phase 6 — Visual Polish & Mascots ✅
 
 - Apply full visual identity (§11): textured backgrounds, chunky typography, chalk-particle details.
 - Add/commission illustrated mascot per archetype for result page + share card.

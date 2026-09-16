@@ -11,8 +11,8 @@ function ChallengePage() {
   if (!payload || !archetype) {
     return (
       <section className="page page-challenge">
-        <h1>Challenge Link Not Found</h1>
-        <p>This link looks broken or expired. Take the quiz to find your own climbing archetype.</p>
+        <h1>Chalk Bag's Empty</h1>
+        <p>This link snapped like a bad crimp. Take the quiz and find your own climbing archetype.</p>
         <Link to="/quiz" className="btn btn-primary">
           Start Quiz
         </Link>
@@ -26,7 +26,7 @@ function ChallengePage() {
     <section className="page page-challenge">
       <span className="result-icon">{archetype.icon}</span>
       <h1>
-        {challenger} is a {archetype.name} {archetype.icon}
+        {challenger} is a {archetype.name}
       </h1>
       <p className="result-tagline">Think you're different? Take the quiz →</p>
       <button type="button" className="btn btn-primary" onClick={() => navigate('/quiz')}>
