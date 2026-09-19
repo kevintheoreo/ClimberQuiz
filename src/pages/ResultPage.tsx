@@ -9,7 +9,6 @@ import { buildShareFilename, captureShareCardPng, shareOrDownloadPng } from '../
 import { trackEvent } from '../analytics/analytics'
 import StatBar from '../components/StatBar'
 import Mascot from '../components/Mascot'
-import EditionStamp from '../components/EditionStamp'
 import ShareCard from '../components/ShareCard'
 
 interface ResultLocationState {
@@ -37,7 +36,6 @@ function ResultPage() {
     trackEvent('result_viewed', {
       archetype_id: result.archetype.id,
       archetype_name: result.archetype.name,
-      rarity: result.archetype.rarity,
       aura: result.aura,
     })
     // Fire once per landed result, not on every recompute of the memo.
@@ -101,7 +99,6 @@ function ResultPage() {
       <h1>You're a {archetype.name}</h1>
       <p className="result-tagline">&ldquo;{archetype.tagline}&rdquo;</p>
       <p className="result-aura">Climbing Aura: {aura}</p>
-      <EditionStamp rarity={archetype.rarity} />
       <p>{archetype.flavorText}</p>
 
       <div className="result-block stat-bars">

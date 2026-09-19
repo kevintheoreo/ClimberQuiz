@@ -1,13 +1,6 @@
 import { ARCHETYPES } from '../types/archetypes'
 import { AURAS, DIMENSIONS } from '../types/archetype'
-import type { ArchetypeContent, Aura, DimensionVector, Rarity } from '../types/archetype'
-
-const RARITY_RANK: Record<Rarity, number> = {
-  common: 0,
-  uncommon: 1,
-  rare: 2,
-  'very-rare': 3,
-}
+import type { ArchetypeContent, Aura, DimensionVector } from '../types/archetype'
 
 function distance(a: DimensionVector, b: DimensionVector): number {
   return Math.sqrt(
@@ -15,18 +8,15 @@ function distance(a: DimensionVector, b: DimensionVector): number {
   )
 }
 
-/** Picks the archetype whose ideal vector is closest to the user's; ties favour the rarer archetype. */
+/** Picks the archetype whose ideal vector is closest to the user's; ties keep the earlier archetype in list order. */
 export function pickArchetype(userVector: DimensionVector): ArchetypeContent {
   let best = ARCHETYPES[0]
   let bestDistance = distance(userVector, best.idealVector)
 
   for (const archetype of ARCHETYPES.slice(1)) {
     const d = distance(userVector, archetype.idealVector)
-    const isCloser = d < bestDistance - 1e-9
-    const isTie = Math.abs(d - bestDistance) <= 1e-9
-    const isRarerTie = isTie && RARITY_RANK[archetype.rarity] > RARITY_RANK[best.rarity]
 
-    if (isCloser || isRarerTie) {
+    if (d < bestDistance - 1e-9) {
       best = archetype
       bestDistance = d
     }

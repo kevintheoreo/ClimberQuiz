@@ -1,6 +1,5 @@
 import { forwardRef } from 'react'
 import Mascot from './Mascot'
-import EditionStamp from './EditionStamp'
 import type { ArchetypeContent, DimensionVector } from '../types/archetype'
 
 interface ShareCardProps {
@@ -57,8 +56,6 @@ const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(function ShareCard(
         <span className="share-card-chip">{archetype.favouriteHold}</span>
         <span className="share-card-chip">{archetype.naturalHabitat}</span>
       </div>
-
-      <EditionStamp rarity={archetype.rarity} size="lg" />
 
       <p className="share-card-footer">climbertype.app</p>
     </div>

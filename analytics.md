@@ -44,7 +44,7 @@ providers, `analytics.ts` is the only file that needs to change.
 |---|---|---|---|
 | `quiz_started` | The quiz mounts — covers every entry point (landing page, a challenge link, a direct `/quiz` visit) | — | `src/quiz/useQuiz.ts` |
 | `quiz_completed` | The last question is answered and "See Results" is clicked | — | `src/pages/QuizPage.tsx` |
-| `result_viewed` | The result page renders with a real result | `archetype_id`, `archetype_name`, `rarity`, `aura` | `src/pages/ResultPage.tsx` |
+| `result_viewed` | The result page renders with a real result | `archetype_id`, `archetype_name`, `aura` | `src/pages/ResultPage.tsx` |
 | `share_image_clicked` | "Share Image" is clicked (before the PNG export runs) | `archetype_id` | `src/pages/ResultPage.tsx` |
 | `challenge_link_copied` | "Copy Link" is clicked | `archetype_id`, `has_name` | `src/pages/ResultPage.tsx` |
 | `retake_quiz_clicked` | "Retake Quiz" is clicked | `archetype_id` | `src/pages/ResultPage.tsx` |
