@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { scoreQuiz } from '../scoring/scoreQuiz'
 import { ARCHETYPES_BY_ID } from '../types/archetypes'
-import { DIMENSIONS, DIMENSION_LABELS, RARITY_LABELS } from '../types/archetype'
+import { DIMENSIONS, DIMENSION_LABELS } from '../types/archetype'
 import type { QuizAnswers } from '../types/quiz'
 import { buildChallengeUrl } from '../sharing/challengeLink'
+import { buildShareFilename, captureShareCardPng, shareOrDownloadPng } from '../sharing/exportShareCard'
 import StatBar from '../components/StatBar'
+import Mascot from '../components/Mascot'
+import EditionStamp from '../components/EditionStamp'
+import ShareCard from '../components/ShareCard'
 
 interface ResultLocationState {
   answers?: QuizAnswers
@@ -22,6 +26,9 @@ function ResultPage() {
   const answers = (location.state as ResultLocationState | null)?.answers
   const [accuracyFeedback, setAccuracyFeedback] = useState<string | null>(null)
   const [linkCopied, setLinkCopied] = useState(false)
+  const [name, setName] = useState('')
+  const [shareStatus, setShareStatus] = useState<'idle' | 'working'>('idle')
+  const shareCardRef = useRef<HTMLDivElement>(null)
 
   if (!answers) {
     return (
@@ -45,7 +52,7 @@ function ResultPage() {
   }
 
   async function handleCopyLink() {
-    const url = buildChallengeUrl({ archetypeId: archetype.id })
+    const url = buildChallengeUrl({ archetypeId: archetype.id, name: name.trim() || undefined })
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable')
       await navigator.clipboard.writeText(url)
@@ -56,15 +63,26 @@ function ResultPage() {
     }
   }
 
+  async function handleShareImage() {
+    if (!shareCardRef.current || shareStatus === 'working') return
+    setShareStatus('working')
+    try {
+      const blob = await captureShareCardPng(shareCardRef.current)
+      await shareOrDownloadPng(blob, buildShareFilename(archetype.name))
+    } catch (err) {
+      console.error('[share-card] failed to export', err)
+    } finally {
+      setShareStatus('idle')
+    }
+  }
+
   return (
     <section className="page page-result">
-      <span className="result-icon">{archetype.icon}</span>
+      <Mascot archetypeId={archetype.id} name={archetype.name} size={200} />
       <h1>You're a {archetype.name}</h1>
       <p className="result-tagline">&ldquo;{archetype.tagline}&rdquo;</p>
       <p className="result-aura">Climbing Aura: {aura}</p>
-      <span className={`rarity-badge rarity-${archetype.rarity}`}>
-        {RARITY_LABELS[archetype.rarity]}
-      </span>
+      <EditionStamp rarity={archetype.rarity} />
       <p>{archetype.flavorText}</p>
 
       <div className="result-block stat-bars">
@@ -133,13 +151,40 @@ function ResultPage() {
         {accuracyFeedback && <p className="accuracy-feedback-thanks">Thanks for the feedback!</p>}
       </div>
 
+      <div className="name-input-row">
+        <label className="name-input-label" htmlFor="challenge-name">
+          Your name (for the challenge link)
+        </label>
+        <input
+          id="challenge-name"
+          className="name-input"
+          type="text"
+          placeholder="Optional"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          maxLength={40}
+        />
+      </div>
+
       <div className="result-actions">
         <button type="button" className="btn btn-secondary" onClick={handleCopyLink}>
           {linkCopied ? 'Link Copied!' : 'Copy Link'}
         </button>
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={handleShareImage}
+          disabled={shareStatus === 'working'}
+        >
+          {shareStatus === 'working' ? 'Preparing…' : 'Share Image'}
+        </button>
         <Link to="/quiz" className="btn btn-primary">
           Retake Quiz
         </Link>
+      </div>
+
+      <div className="share-card-offscreen">
+        <ShareCard ref={shareCardRef} archetype={archetype} dimensionScores={dimensionScores} />
       </div>
     </section>
   )

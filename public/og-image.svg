@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#EFE3C8"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#201A12" stroke-width="16"/>
+  <path d="M0,0 L620,0 L460,630 L0,630 Z" fill="#E8432E"/>
+  <circle cx="150" cy="120" r="20" fill="none" stroke="#201A12" stroke-width="2" opacity="0.5"/>
+  <line x1="120" y1="120" x2="180" y2="120" stroke="#201A12" stroke-width="2" opacity="0.5"/>
+  <line x1="150" y1="90" x2="150" y2="150" stroke="#201A12" stroke-width="2" opacity="0.5"/>
+
+  <g transform="translate(190,205)">
+    <g transform="translate(5,5)" opacity="0.5">
+      <path d="M88,52 L64,18 L104,46 Z" fill="#1E7A6E"/>
+      <path d="M152,52 L176,18 L136,46 Z" fill="#1E7A6E"/>
+      <path d="M120,28 C158,28 176,58 174,96 C172,146 160,196 120,208 C80,196 68,146 66,96 C64,58 82,28 120,28 Z" fill="#1E7A6E"/>
+      <path d="M74,118 Q52,146 60,176" fill="none" stroke="#1E7A6E" stroke-width="13" stroke-linecap="round"/>
+      <circle cx="60" cy="180" r="12" fill="#1E7A6E"/>
+      <path d="M168,108 Q198,86 206,58" fill="none" stroke="#1E7A6E" stroke-width="13" stroke-linecap="round"/>
+      <circle cx="206" cy="54" r="13" fill="#1E7A6E"/>
+      <path d="M98,200 Q92,220 88,232" fill="none" stroke="#1E7A6E" stroke-width="13" stroke-linecap="round"/>
+      <circle cx="88" cy="236" r="12" fill="#1E7A6E"/>
+      <path d="M142,200 Q148,220 152,232" fill="none" stroke="#1E7A6E" stroke-width="13" stroke-linecap="round"/>
+      <circle cx="152" cy="236" r="12" fill="#1E7A6E"/>
+    </g>
+    <path d="M88,52 L64,18 L104,46 Z" fill="#EFE3C8" stroke="#201A12" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M152,52 L176,18 L136,46 Z" fill="#EFE3C8" stroke="#201A12" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M120,28 C158,28 176,58 174,96 C172,146 160,196 120,208 C80,196 68,146 66,96 C64,58 82,28 120,28 Z" fill="#EFE3C8" stroke="#201A12" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M74,118 Q52,146 60,176" fill="none" stroke="#201A12" stroke-width="14" stroke-linecap="round"/>
+    <path d="M74,118 Q52,146 60,176" fill="none" stroke="#EFE3C8" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="60" cy="180" r="12" fill="#EFE3C8" stroke="#201A12" stroke-width="6"/>
+    <path d="M168,108 Q198,86 206,58" fill="none" stroke="#201A12" stroke-width="14" stroke-linecap="round"/>
+    <path d="M168,108 Q198,86 206,58" fill="none" stroke="#EFE3C8" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="206" cy="54" r="13" fill="#EFE3C8" stroke="#201A12" stroke-width="6"/>
+    <path d="M196,38 Q214,30 224,44 Q216,58 198,52 Q188,46 196,38 Z" fill="#E8A93B" stroke="#201A12" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M98,200 Q92,220 88,232" fill="none" stroke="#201A12" stroke-width="14" stroke-linecap="round"/>
+    <path d="M98,200 Q92,220 88,232" fill="none" stroke="#EFE3C8" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="88" cy="236" r="12" fill="#EFE3C8" stroke="#201A12" stroke-width="6"/>
+    <path d="M142,200 Q148,220 152,232" fill="none" stroke="#201A12" stroke-width="14" stroke-linecap="round"/>
+    <path d="M142,200 Q148,220 152,232" fill="none" stroke="#EFE3C8" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="152" cy="236" r="12" fill="#EFE3C8" stroke="#201A12" stroke-width="6"/>
+    <ellipse cx="98" cy="104" rx="10" ry="13" fill="#201A12" stroke="#201A12" stroke-width="4"/>
+    <ellipse cx="142" cy="104" rx="10" ry="13" fill="#201A12" stroke="#201A12" stroke-width="4"/>
+    <path d="M96,138 Q120,160 144,138 Q120,150 96,138 Z" fill="#201A12"/>
+  </g>
+
+  <text x="660" y="290" font-family="'Titan One', 'Arial Black', sans-serif" font-size="76" fill="#201A12">CLIMBERTYPE</text>
+  <text x="660" y="350" font-family="'Space Mono', monospace" font-size="30" font-weight="700" fill="#5C5138">What kind of climber are you?</text>
+  <text x="660" y="410" font-family="'Space Mono', monospace" font-size="24" fill="#5C5138">Take the quiz. Find your archetype.</text>
+</svg>

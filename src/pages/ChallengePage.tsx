@@ -1,6 +1,7 @@
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { decodeChallenge } from '../sharing/challengeLink'
 import { ARCHETYPES_BY_ID } from '../types/archetypes'
+import Mascot from '../components/Mascot'
 
 function ChallengePage() {
   const { code } = useParams<{ code: string }>()
@@ -24,7 +25,7 @@ function ChallengePage() {
 
   return (
     <section className="page page-challenge">
-      <span className="result-icon">{archetype.icon}</span>
+      <Mascot archetypeId={archetype.id} name={archetype.name} size={180} />
       <h1>
         {challenger} is a {archetype.name}
       </h1>
