@@ -9,8 +9,9 @@
   "superpower": "Raw power",
   "weakness": "Technical slab",
   "rivalArchetypeId": "slab-philosopher",
+  "partnerArchetypeId": "beta-scientist",
   "villainLine": "They stand there reading footwork for five minutes. You'd have just campused it by now.",
-  "partnerLine": "You provide the power, they provide the feet — together you somehow finish the problem.",
+  "partnerLine": "You bring the raw power, they bring the beta — finally a plan that survives contact with the wall.",
   "idealVector": {
     "POWER": 95,
     "TECHNIQUE": 15,

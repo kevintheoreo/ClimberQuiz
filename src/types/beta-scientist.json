@@ -9,8 +9,9 @@
   "superpower": "Problem solving",
   "weakness": "Actually starting the problem",
   "rivalArchetypeId": "dyno-gremlin",
+  "partnerArchetypeId": "campus-ape",
   "villainLine": "They just jump at it with zero plan. It offends you on a spiritual level.",
-  "partnerLine": "You map out the beta, they supply the commitment to actually send it — a perfect division of labor.",
+  "partnerLine": "You map out the beta, they supply the raw power to actually execute it — a perfect division of labor.",
   "idealVector": {
     "POWER": 30,
     "TECHNIQUE": 55,

@@ -212,7 +212,7 @@ Explicitly deferred:
 
 - **Archetype count:** Launch with all 12 types (no trimmed 8-type version).
 - **Rarity:** Rough labels only (Common / Uncommon / Rare / Very Rare) — no exact percentages for V1.
-- **Villain/partner pairing:** Fixed 1:1 pairing per archetype (e.g. Crimp Goblin's villain/partner is always the same type), not computed per user.
+- **Villain/partner pairing:** Each archetype has a fixed villain and a fixed partner, and they are always two different archetypes (e.g. Crimp Goblin's villain is Sloper Specialist, its partner is Slab Philosopher). Not computed per user. (Originally the same archetype for both; changed because it read as contradictory on the result page.)
 - **Share fallback:** Acceptable for some devices (e.g. iPhone/Safari) to fall back to "save image" instead of one-tap share to Instagram.
 
 ## 18. Open Questions

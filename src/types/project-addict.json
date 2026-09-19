@@ -9,8 +9,9 @@
   "superpower": "Persistence",
   "weakness": "Knowing when to stop",
   "rivalArchetypeId": "rest-day-warrior",
+  "partnerArchetypeId": "grade-goblin",
   "villainLine": "They've talked about training for this move more than you've actually tried it. You have no patience for that.",
-  "partnerLine": "You bring the relentless attempts, they bring the recovery plan you'll never actually follow — a functional, if chaotic, pair.",
+  "partnerLine": "You bring the relentless attempts, they bring the target grade — your projects finally have a goal.",
   "idealVector": {
     "POWER": 55,
     "TECHNIQUE": 50,

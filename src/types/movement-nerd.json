@@ -9,8 +9,9 @@
   "superpower": "Body awareness",
   "weakness": "Ugly beta",
   "rivalArchetypeId": "sandbagger-supreme",
+  "partnerArchetypeId": "sloper-specialist",
   "villainLine": "They'll grunt through the ugliest possible beta and then claim they barely tried. It's an aesthetic crime.",
-  "partnerLine": "You bring the style, they bring the quietly terrifying ability — an oddly perfect pairing.",
+  "partnerLine": "You bring the style, they bring the friction — together you make the worst holds look easy.",
   "idealVector": {
     "POWER": 45,
     "TECHNIQUE": 75,

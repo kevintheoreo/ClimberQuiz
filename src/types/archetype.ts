@@ -34,8 +34,9 @@ export interface ArchetypeContent {
   naturalHabitat: string
   superpower: string
   weakness: string
-  /** Villain and partner are always the same archetype (see PRD decisions log). */
+  /** Villain and partner are fixed per archetype, and always different archetypes (see PRD decisions log). */
   rivalArchetypeId: string
+  partnerArchetypeId: string
   villainLine: string
   partnerLine: string
   idealVector: DimensionVector

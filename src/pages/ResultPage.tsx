@@ -56,6 +56,7 @@ function ResultPage() {
 
   const { archetype, aura, dimensionScores } = result
   const rival = ARCHETYPES_BY_ID[archetype.rivalArchetypeId]
+  const partner = ARCHETYPES_BY_ID[archetype.partnerArchetypeId]
 
   function handleAccuracyFeedback(id: string) {
     setAccuracyFeedback(id)
@@ -129,20 +130,24 @@ function ResultPage() {
         </dl>
       </div>
 
-      {rival && (
+      {(rival || partner) && (
         <div className="result-block callout-grid">
-          <div className="callout callout-villain">
-            <h3>
-              {rival.icon} Your Climbing Villain: {rival.name}
-            </h3>
-            <p>{archetype.villainLine}</p>
-          </div>
-          <div className="callout callout-partner">
-            <h3>
-              {rival.icon} Your Climbing Partner: {rival.name}
-            </h3>
-            <p>{archetype.partnerLine}</p>
-          </div>
+          {rival && (
+            <div className="callout callout-villain">
+              <h3>
+                {rival.icon} Your Climbing Villain: {rival.name}
+              </h3>
+              <p>{archetype.villainLine}</p>
+            </div>
+          )}
+          {partner && (
+            <div className="callout callout-partner">
+              <h3>
+                {partner.icon} Your Climbing Partner: {partner.name}
+              </h3>
+              <p>{archetype.partnerLine}</p>
+            </div>
+          )}
         </div>
       )}
 

@@ -9,8 +9,9 @@
   "superpower": "Explosiveness",
   "weakness": "Static climbing",
   "rivalArchetypeId": "beta-scientist",
+  "partnerArchetypeId": "chill-climber",
   "villainLine": "They spend ten minutes theorizing a move you'd have already jumped for three times.",
-  "partnerLine": "They supply the plan, you supply the commitment to actually send it — a perfect division of labor.",
+  "partnerLine": "You bring the chaos, they bring the calm — every session stays fun, even after the fifth whiff.",
   "idealVector": {
     "POWER": 75,
     "TECHNIQUE": 40,

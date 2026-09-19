@@ -9,8 +9,9 @@
   "superpower": "Making hard climbs look casual",
   "weakness": "Admitting their grade",
   "rivalArchetypeId": "movement-nerd",
+  "partnerArchetypeId": "rest-day-warrior",
   "villainLine": "They'll analyze exactly why your \"warm-up\" send worked. You'd really rather they didn't.",
-  "partnerLine": "They bring the style, you bring the quietly terrifying ability — an oddly perfect pairing.",
+  "partnerLine": "They bring the rest days, you bring the surprise sends — a suspiciously effective, low-key duo.",
   "idealVector": {
     "POWER": 70,
     "TECHNIQUE": 70,

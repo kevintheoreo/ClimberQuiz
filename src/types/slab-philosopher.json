@@ -9,8 +9,9 @@
   "superpower": "Footwork",
   "weakness": "Roof problems",
   "rivalArchetypeId": "campus-ape",
+  "partnerArchetypeId": "crimp-goblin",
   "villainLine": "They skip the feet entirely. You genuinely don't understand how they're still on the wall.",
-  "partnerLine": "You provide the precision, they provide the power — together you cover every angle in the gym.",
+  "partnerLine": "You bring the precision, they bring the finger strength — no hold is too small for the two of you.",
   "idealVector": {
     "POWER": 30,
     "TECHNIQUE": 75,

@@ -9,8 +9,9 @@
   "superpower": "Knowing exactly what they should train",
   "weakness": "Actually doing it",
   "rivalArchetypeId": "project-addict",
+  "partnerArchetypeId": "sandbagger-supreme",
   "villainLine": "They'll throw themselves at the same move for two hours with zero plan. You find it exhausting to watch.",
-  "partnerLine": "You bring the recovery plan you'll never actually follow, they bring the relentless attempts — a functional, if chaotic, pair.",
+  "partnerLine": "You bring the recovery plan, they bring the quietly terrifying ability — low effort, suspiciously high output.",
   "idealVector": {
     "POWER": 20,
     "TECHNIQUE": 30,

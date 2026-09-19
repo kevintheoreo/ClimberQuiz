@@ -9,8 +9,9 @@
   "superpower": "Having fun",
   "weakness": "Training plans",
   "rivalArchetypeId": "grade-goblin",
+  "partnerArchetypeId": "dyno-gremlin",
   "villainLine": "They can't enjoy a climb without knowing the number first. You genuinely don't get it.",
-  "partnerLine": "You keep the session fun, they keep it motivated — you balance each other out more than either of you admits.",
+  "partnerLine": "You keep the vibes mellow, they keep the energy high — a session with you two is never boring.",
   "idealVector": {
     "POWER": 40,
     "TECHNIQUE": 50,

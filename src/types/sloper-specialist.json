@@ -9,8 +9,9 @@
   "superpower": "Open-hand strength",
   "weakness": "Tiny crimps",
   "rivalArchetypeId": "crimp-goblin",
+  "partnerArchetypeId": "movement-nerd",
   "villainLine": "They think a two-millimeter edge is a jug. You think that's a great way to explode a pulley.",
-  "partnerLine": "You bring the friction, they bring the finger strength — between you, nothing on the wall is safe.",
+  "partnerLine": "You bring the friction and body tension, they bring the flow — even the ugliest sloper looks graceful.",
   "idealVector": {
     "POWER": 55,
     "TECHNIQUE": 70,

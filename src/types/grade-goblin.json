@@ -9,8 +9,9 @@
   "superpower": "Competition",
   "weakness": "Seeing an easier climb",
   "rivalArchetypeId": "chill-climber",
+  "partnerArchetypeId": "project-addict",
   "villainLine": "They'll happily flail on a V0 for fun. You physically cannot understand the appeal.",
-  "partnerLine": "You keep it motivated, they keep it fun — you balance each other out more than either of you admits.",
+  "partnerLine": "You bring the ambition, they bring the relentless attempts — the hard grades stand no chance.",
   "idealVector": {
     "POWER": 60,
     "TECHNIQUE": 45,

@@ -9,8 +9,9 @@
   "superpower": "Finger strength",
   "weakness": "Slopers",
   "rivalArchetypeId": "sloper-specialist",
+  "partnerArchetypeId": "slab-philosopher",
   "villainLine": "They don't understand why you're pulling so hard on a hold with no edge at all.",
-  "partnerLine": "You bring the finger strength, they bring the friction — between you, nothing on the wall is safe.",
+  "partnerLine": "You bring the finger strength, they bring the footwork — between you, nothing on the wall is safe.",
   "idealVector": {
     "POWER": 85,
     "TECHNIQUE": 40,
