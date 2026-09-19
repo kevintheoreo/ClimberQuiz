@@ -2,7 +2,7 @@
 
 Implementation phases derived from [PRD.md](PRD.md). Each phase should be independently shippable/demoable and builds on the previous one.
 
-## Phase 0 — Project Setup
+## Phase 0 — Project Setup ✅
 
 - Scaffold React + Vite project.
 - Set up folder structure: `src/components`, `src/quiz`, `src/types` (archetype JSON), `src/scoring`, `src/pages`.
@@ -11,7 +11,7 @@ Implementation phases derived from [PRD.md](PRD.md). Each phase should be indepe
 
 **Done when:** Blank app runs locally with landing → quiz → result page stubs navigable.
 
-## Phase 1 — Quiz Engine (Content-Agnostic)
+## Phase 1 — Quiz Engine (Content-Agnostic) ✅
 
 - Build static config for 10 questions × 4 answers (placeholder copy OK).
 - Build quiz UI: one question per screen, progress indicator, back/next.
@@ -19,7 +19,7 @@ Implementation phases derived from [PRD.md](PRD.md). Each phase should be indepe
 
 **Done when:** User can click through all 10 questions and land on a bare result screen showing raw selected answers.
 
-## Phase 2 — Archetype Content & Scoring Engine
+## Phase 2 — Archetype Content & Scoring Engine ✅
 
 - Author final copy for all 12 archetypes as static JSON (icon, name, tagline, favourite hold, habitat, superpower, weakness, rarity tier, villain/partner pairing, ideal 6-dimension vector).
 - Author final answer-weight table (40 answers → 6 dimensions).
@@ -36,7 +36,7 @@ Implementation phases derived from [PRD.md](PRD.md). Each phase should be indepe
 
 **Done when:** Result page fully reflects the matched archetype with real content and styling.
 
-## Phase 4 — Share Card Generation
+## Phase 4 — Share Card Generation ✅
 
 - Build 1080×1920 share card layout (per §9) as a component.
 - Implement image export (canvas/HTML-to-image) to downloadable PNG.

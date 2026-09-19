@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import ProgressBar from '../components/ProgressBar'
 import { useQuiz } from '../quiz/useQuiz'
+import { trackEvent } from '../analytics/analytics'
 
 function QuizPage() {
   const navigate = useNavigate()
@@ -20,6 +21,7 @@ function QuizPage() {
 
   function handleNext() {
     if (isLast) {
+      trackEvent('quiz_completed')
       navigate('/result', { state: { answers } })
     } else {
       goNext()

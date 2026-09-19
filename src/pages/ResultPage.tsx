@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { scoreQuiz } from '../scoring/scoreQuiz'
 import { ARCHETYPES_BY_ID } from '../types/archetypes'
@@ -6,6 +6,7 @@ import { DIMENSIONS, DIMENSION_LABELS } from '../types/archetype'
 import type { QuizAnswers } from '../types/quiz'
 import { buildChallengeUrl } from '../sharing/challengeLink'
 import { buildShareFilename, captureShareCardPng, shareOrDownloadPng } from '../sharing/exportShareCard'
+import { trackEvent } from '../analytics/analytics'
 import StatBar from '../components/StatBar'
 import Mascot from '../components/Mascot'
 import EditionStamp from '../components/EditionStamp'
@@ -29,8 +30,21 @@ function ResultPage() {
   const [name, setName] = useState('')
   const [shareStatus, setShareStatus] = useState<'idle' | 'working'>('idle')
   const shareCardRef = useRef<HTMLDivElement>(null)
+  const result = useMemo(() => (answers ? scoreQuiz(answers) : null), [answers])
 
-  if (!answers) {
+  useEffect(() => {
+    if (!result) return
+    trackEvent('result_viewed', {
+      archetype_id: result.archetype.id,
+      archetype_name: result.archetype.name,
+      rarity: result.archetype.rarity,
+      aura: result.aura,
+    })
+    // Fire once per landed result, not on every recompute of the memo.
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
+  }, [result?.archetype.id])
+
+  if (!answers || !result) {
     return (
       <section className="page page-result">
         <h1>No Send Yet</h1>
@@ -42,17 +56,17 @@ function ResultPage() {
     )
   }
 
-  const { archetype, aura, dimensionScores } = scoreQuiz(answers)
+  const { archetype, aura, dimensionScores } = result
   const rival = ARCHETYPES_BY_ID[archetype.rivalArchetypeId]
 
   function handleAccuracyFeedback(id: string) {
     setAccuracyFeedback(id)
-    // Local-only for now; wired to real analytics in Phase 7.
-    console.info('[accuracy-feedback]', { archetypeId: archetype.id, feedback: id })
+    trackEvent('accuracy_feedback_submitted', { archetype_id: archetype.id, feedback: id })
   }
 
   async function handleCopyLink() {
     const url = buildChallengeUrl({ archetypeId: archetype.id, name: name.trim() || undefined })
+    trackEvent('challenge_link_copied', { archetype_id: archetype.id, has_name: Boolean(name.trim()) })
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable')
       await navigator.clipboard.writeText(url)
@@ -66,6 +80,7 @@ function ResultPage() {
   async function handleShareImage() {
     if (!shareCardRef.current || shareStatus === 'working') return
     setShareStatus('working')
+    trackEvent('share_image_clicked', { archetype_id: archetype.id })
     try {
       const blob = await captureShareCardPng(shareCardRef.current)
       await shareOrDownloadPng(blob, buildShareFilename(archetype.name))
@@ -74,6 +89,10 @@ function ResultPage() {
     } finally {
       setShareStatus('idle')
     }
+  }
+
+  function handleRetakeClick() {
+    trackEvent('retake_quiz_clicked', { archetype_id: archetype.id })
   }
 
   return (
@@ -178,7 +197,7 @@ function ResultPage() {
         >
           {shareStatus === 'working' ? 'Preparing…' : 'Share Image'}
         </button>
-        <Link to="/quiz" className="btn btn-primary">
+        <Link to="/quiz" className="btn btn-primary" onClick={handleRetakeClick}>
           Retake Quiz
         </Link>
       </div>

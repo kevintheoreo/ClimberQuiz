@@ -1,10 +1,16 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { QUESTIONS } from './questions'
 import type { QuizAnswers } from '../types/quiz'
+import { trackEvent } from '../analytics/analytics'
 
 export function useQuiz() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState<QuizAnswers>({})
+
+  // Fires once per mount, covering every entry point into /quiz (landing page, challenge page, direct link).
+  useEffect(() => {
+    trackEvent('quiz_started')
+  }, [])
 
   const total = QUESTIONS.length
   const currentQuestion = QUESTIONS[currentIndex]

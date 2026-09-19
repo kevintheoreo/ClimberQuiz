@@ -1,13 +1,26 @@
+import { useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { decodeChallenge } from '../sharing/challengeLink'
 import { ARCHETYPES_BY_ID } from '../types/archetypes'
 import Mascot from '../components/Mascot'
+import { trackEvent } from '../analytics/analytics'
 
 function ChallengePage() {
   const { code } = useParams<{ code: string }>()
   const navigate = useNavigate()
   const payload = code ? decodeChallenge(code) : null
   const archetype = payload ? ARCHETYPES_BY_ID[payload.archetypeId] : undefined
+
+  useEffect(() => {
+    if (payload && archetype) {
+      trackEvent('challenge_viewed', {
+        archetype_id: archetype.id,
+        has_name: Boolean(payload.name),
+      })
+    }
+    // payload is a freshly-decoded object every render; keying on the id avoids refiring on every render.
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
+  }, [payload?.archetypeId, archetype])
 
   if (!payload || !archetype) {
     return (
