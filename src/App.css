@@ -116,6 +116,8 @@
   padding: 20px 24px;
   background: var(--color-surface);
   border: 3px solid var(--color-border);
+  /* The zigzag clip slices the top border into loose shards, so the torn edge stands on the fill alone. */
+  border-top: 0;
 }
 
 .landing-eyebrow {
@@ -454,7 +456,7 @@
   width: 1080px;
   height: 1920px;
   box-sizing: border-box;
-  padding: 64px 56px;
+  padding: 82px 56px 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -466,6 +468,8 @@
     var(--color-bg) 100%
   );
   border: 18px solid var(--color-border);
+  /* The zigzag clip slices the top border into loose shards, so the torn edge stands on the fill alone. */
+  border-top: 0;
   position: relative;
   overflow: hidden;
   font-family: var(--font-body);

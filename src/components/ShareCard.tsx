@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import Mascot from './Mascot'
+import { DIMENSIONS, DIMENSION_LABELS } from '../types/archetype'
 import type { ArchetypeContent, DimensionVector } from '../types/archetype'
 
 interface ShareCardProps {
@@ -7,27 +8,10 @@ interface ShareCardProps {
   dimensionScores: DimensionVector
 }
 
-/**
- * The four share-card stats intentionally aren't a 1:1 dump of the six scoring
- * dimensions — Vibes reuses the same "100 - GRADE_EGO" formula pickAura() uses
- * for its VIBES score (see src/scoring/match.ts), so the number shown here
- * matches what the rest of the app already computes.
- */
-function buildShareStats(scores: DimensionVector) {
-  return [
-    { label: 'Power', value: scores.POWER },
-    { label: 'Grit', value: scores.COMMITMENT },
-    { label: 'Technique', value: scores.TECHNIQUE },
-    { label: 'Vibes', value: 100 - scores.GRADE_EGO },
-  ]
-}
-
 const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(function ShareCard(
   { archetype, dimensionScores },
   ref,
 ) {
-  const stats = buildShareStats(dimensionScores)
-
   return (
     <div ref={ref} className="share-card deckle-edge">
       <div className="share-card-texture" />
@@ -39,13 +23,13 @@ const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(function ShareCard(
       <p className="share-card-tagline">&ldquo;{archetype.tagline}&rdquo;</p>
 
       <div className="share-card-stats">
-        {stats.map((stat) => (
-          <div key={stat.label} className="share-card-stat-row">
-            <span className="share-card-stat-label">{stat.label}</span>
+        {DIMENSIONS.map((dim) => (
+          <div key={dim} className="share-card-stat-row">
+            <span className="share-card-stat-label">{DIMENSION_LABELS[dim]}</span>
             <div className="share-card-stat-track">
               <div
                 className="share-card-stat-fill"
-                style={{ width: `${Math.round(stat.value)}%` }}
+                style={{ width: `${Math.round(dimensionScores[dim])}%` }}
               />
             </div>
           </div>
