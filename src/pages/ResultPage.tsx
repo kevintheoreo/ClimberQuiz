@@ -215,7 +215,7 @@ function ResultPage() {
         className="support-link"
         onClick={handleSupportLinkClick}
       >
-        🧴 Buy me a chalkbag
+        🪣 <strong>Buy me a chalkbag</strong>
       </a>
 
       <div className="share-card-offscreen">
