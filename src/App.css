@@ -445,6 +445,17 @@
   justify-content: center;
 }
 
+.support-link {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.support-link:hover {
+  color: var(--color-text);
+}
+
 .share-card-offscreen {
   position: fixed;
   top: 0;
