@@ -534,9 +534,9 @@
 .page-credit-line {
   display: inline-block;
   margin: 0;
-  padding: 6px 16px;
+  padding: 14px 40px;
   border-radius: 999px;
-  background: var(--color-bg);
+  background: radial-gradient(ellipse, var(--color-bg) 55%, transparent 100%);
   font-size: 13px;
   color: var(--color-text-muted);
 }
