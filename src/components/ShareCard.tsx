@@ -41,7 +41,7 @@ const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(function ShareCard(
         <span className="share-card-chip">{archetype.naturalHabitat}</span>
       </div>
 
-      <p className="share-card-footer">climbertype.app</p>
+      <p className="share-card-footer">climbertype.com</p>
     </div>
   )
 })
