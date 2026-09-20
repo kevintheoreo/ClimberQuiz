@@ -223,7 +223,7 @@ function ResultPage() {
             className="chalkbag-button"
             onClick={handleSupportLinkClick}
           >
-            🪣 Buy me a chalkbag
+            🪣 Buy me chalk
           </a>
           <a
             href="https://instagram.com/crampingapey"
