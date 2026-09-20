@@ -138,17 +138,19 @@ function ResultPage() {
         <div className="result-block callout-grid">
           {rival && (
             <div className="callout callout-villain">
-              <h3>
-                {rival.icon} Your Climbing Villain: {rival.name}
-              </h3>
+              <div className="callout-header">
+                <Mascot archetypeId={rival.id} name={rival.name} size={40} static />
+                <h3>Your Climbing Villain: {rival.name}</h3>
+              </div>
               <p>{archetype.villainLine}</p>
             </div>
           )}
           {partner && (
             <div className="callout callout-partner">
-              <h3>
-                {partner.icon} Your Climbing Partner: {partner.name}
-              </h3>
+              <div className="callout-header">
+                <Mascot archetypeId={partner.id} name={partner.name} size={40} static />
+                <h3>Your Climbing Partner: {partner.name}</h3>
+              </div>
               <p>{archetype.partnerLine}</p>
             </div>
           )}

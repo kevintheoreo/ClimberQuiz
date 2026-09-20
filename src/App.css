@@ -349,10 +349,21 @@
   right: 8px;
 }
 
+.callout-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.callout-header .mascot {
+  flex-shrink: 0;
+}
+
 .callout h3 {
   font-family: var(--font-heading);
   font-size: 15px;
-  margin: 0 0 8px;
+  margin: 0;
 }
 
 .callout p {
