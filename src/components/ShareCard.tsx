@@ -36,9 +36,23 @@ const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(function ShareCard(
         ))}
       </div>
 
-      <div className="share-card-chips">
-        <span className="share-card-chip">{archetype.favouriteHold}</span>
-        <span className="share-card-chip">{archetype.naturalHabitat}</span>
+      <div className="share-card-profile">
+        <div className="share-card-profile-row">
+          <span className="share-card-profile-label">Favourite Hold</span>
+          <span className="share-card-profile-value">{archetype.favouriteHold}</span>
+        </div>
+        <div className="share-card-profile-row">
+          <span className="share-card-profile-label">Natural Habitat</span>
+          <span className="share-card-profile-value">{archetype.naturalHabitat}</span>
+        </div>
+        <div className="share-card-profile-row">
+          <span className="share-card-profile-label">Superpower</span>
+          <span className="share-card-profile-value">{archetype.superpower}</span>
+        </div>
+        <div className="share-card-profile-row">
+          <span className="share-card-profile-label">Weakness</span>
+          <span className="share-card-profile-value">{archetype.weakness}</span>
+        </div>
       </div>
 
       <p className="share-card-footer">climbertype.com</p>

@@ -550,29 +550,29 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 36px;
-  margin-bottom: 96px;
+  gap: 20px;
+  margin-bottom: 56px;
 }
 
 .share-card-stat-row {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .share-card-stat-label {
-  width: 230px;
+  width: 210px;
   flex-shrink: 0;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 25px;
   text-transform: uppercase;
 }
 
 .share-card-stat-track {
   flex: 1;
-  height: 42px;
-  border: 6px solid var(--color-border);
-  border-radius: 8px;
+  height: 30px;
+  border: 5px solid var(--color-border);
+  border-radius: 7px;
   background: var(--color-bg);
   overflow: hidden;
 }
@@ -586,23 +586,32 @@
   );
 }
 
-.share-card-chips {
+.share-card-profile {
   position: relative;
-  display: flex;
-  gap: 20px;
-  margin-bottom: 100px;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 40px;
+  margin-bottom: 64px;
 }
 
-.share-card-chip {
-  background: var(--color-border);
-  color: var(--color-bg);
-  font-size: 26px;
+.share-card-profile-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.share-card-profile-label {
+  font-size: 22px;
   font-weight: 700;
-  padding: 12px 26px;
-  border-radius: 999px;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.share-card-profile-value {
+  font-size: 36px;
+  font-weight: 700;
 }
 
 .share-card-footer {
