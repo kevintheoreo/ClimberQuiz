@@ -94,6 +94,10 @@ function ResultPage() {
     trackEvent('retake_quiz_clicked', { archetype_id: archetype.id })
   }
 
+  function handleSupportLinkClick() {
+    trackEvent('support_link_clicked', { archetype_id: archetype.id })
+  }
+
   return (
     <section className="page page-result">
       <Mascot archetypeId={archetype.id} name={archetype.name} size={200} />
@@ -203,6 +207,16 @@ function ResultPage() {
           Retake Quiz
         </Link>
       </div>
+
+      <a
+        href="https://buymeacoffee.com/crampingapey"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="support-link"
+        onClick={handleSupportLinkClick}
+      >
+        🧴 Buy me a chalkbag
+      </a>
 
       <div className="share-card-offscreen">
         <ShareCard ref={shareCardRef} archetype={archetype} dimensionScores={dimensionScores} />
