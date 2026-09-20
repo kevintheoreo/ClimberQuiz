@@ -98,6 +98,10 @@ function ResultPage() {
     trackEvent('support_link_clicked', { archetype_id: archetype.id })
   }
 
+  function handleInstagramLinkClick() {
+    trackEvent('instagram_link_clicked', { archetype_id: archetype.id })
+  }
+
   return (
     <section className="page page-result">
       <Mascot archetypeId={archetype.id} name={archetype.name} size={200} />
@@ -210,15 +214,34 @@ function ResultPage() {
         </Link>
       </div>
 
-      <a
-        href="https://buymeacoffee.com/crampingapey"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="support-link"
-        onClick={handleSupportLinkClick}
-      >
-        🪣 <strong>Buy me a chalkbag</strong>
-      </a>
+      <div className="page-credit">
+        <div className="page-credit-actions">
+          <a
+            href="https://buymeacoffee.com/crampingapey"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="chalkbag-button"
+            onClick={handleSupportLinkClick}
+          >
+            🪣 Buy me a chalkbag
+          </a>
+          <a
+            href="https://instagram.com/crampingapey"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon-button"
+            aria-label="@crampingapey on Instagram"
+            onClick={handleInstagramLinkClick}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+        </div>
+        <p className="page-credit-line">Developed by @crampingapey</p>
+      </div>
 
       <div className="share-card-offscreen">
         <ShareCard ref={shareCardRef} archetype={archetype} dimensionScores={dimensionScores} />
