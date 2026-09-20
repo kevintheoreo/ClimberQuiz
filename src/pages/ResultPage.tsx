@@ -210,15 +210,18 @@ function ResultPage() {
         </Link>
       </div>
 
-      <a
-        href="https://buymeacoffee.com/crampingapey"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="support-link"
-        onClick={handleSupportLinkClick}
-      >
-        🪣 <strong>Buy me a chalkbag</strong>
-      </a>
+      <div className="page-credit">
+        <a
+          href="https://buymeacoffee.com/crampingapey"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="chalkbag-button"
+          onClick={handleSupportLinkClick}
+        >
+          🪣 Buy me a chalkbag
+        </a>
+        <p className="page-credit-line">Developed by @crampingapey</p>
+      </div>
 
       <div className="share-card-offscreen">
         <ShareCard ref={shareCardRef} archetype={archetype} dimensionScores={dimensionScores} />
