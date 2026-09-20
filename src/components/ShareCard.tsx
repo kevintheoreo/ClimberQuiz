@@ -55,7 +55,7 @@ const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(function ShareCard(
         </div>
       </div>
 
-      <p className="share-card-footer">climbertype.com</p>
+      <p className="share-card-footer">climbertype.vercel.app</p>
     </div>
   )
 })
