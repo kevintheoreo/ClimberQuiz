@@ -209,6 +209,7 @@
 /* Shared mascot rig — swapped-in artwork keeps this idle-sway motion for free. */
 .mascot {
   display: block;
+  object-fit: contain;
   animation: mascot-sway 3.2s ease-in-out infinite;
 }
 
