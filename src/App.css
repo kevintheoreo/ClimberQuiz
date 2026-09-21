@@ -541,10 +541,18 @@
   color: var(--color-text-muted);
 }
 
+/* Kept within on-screen coordinates (clipped to 0x0) rather than pushed far
+   off-screen with a large negative offset — iOS Safari's foreignObject-based
+   canvas capture (used by html-to-image) silently drops <img> elements from
+   nodes positioned way outside the viewport, so the mascot would render
+   everywhere except Safari with that approach. */
 .share-card-offscreen {
   position: fixed;
   top: 0;
-  left: -9999px;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
   pointer-events: none;
 }
 

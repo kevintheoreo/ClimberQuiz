@@ -9,11 +9,35 @@ export function buildShareFilename(archetypeName: string): string {
   return `climbertype-${slug}.png`
 }
 
+/**
+ * Replaces an <img>'s src with a data: URL of its already-decoded pixels.
+ * html-to-image does its own network fetch of each <img> src to inline it
+ * into the SVG snapshot it builds, separate from the browser's own image
+ * load — that second fetch is a known source of intermittent missing
+ * images (races, cache misses) independent of decode() having succeeded.
+ * Inlining ourselves removes that fetch from the equation entirely.
+ */
+async function inlineImage(img: HTMLImageElement): Promise<void> {
+  if (img.src.startsWith('data:')) return
+  try {
+    await img.decode()
+  } catch {
+    return
+  }
+  const canvas = document.createElement('canvas')
+  canvas.width = img.naturalWidth
+  canvas.height = img.naturalHeight
+  const ctx = canvas.getContext('2d')
+  if (!ctx || canvas.width === 0 || canvas.height === 0) return
+  ctx.drawImage(img, 0, 0)
+  img.src = canvas.toDataURL('image/png')
+}
+
 /** Captures a share-card node as a PNG blob at its native pixel size. */
 export async function captureShareCardPng(node: HTMLElement): Promise<Blob> {
   await document.fonts.ready
   const images = Array.from(node.querySelectorAll('img'))
-  await Promise.all(images.map((img) => img.decode().catch(() => undefined)))
+  await Promise.all(images.map(inlineImage))
 
   const blob = await toBlob(node, {
     width: node.offsetWidth,
