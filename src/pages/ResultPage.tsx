@@ -27,7 +27,7 @@ function ResultPage() {
   const [accuracyFeedback, setAccuracyFeedback] = useState<string | null>(null)
   const [linkCopied, setLinkCopied] = useState(false)
   const [name, setName] = useState('')
-  const [shareStatus, setShareStatus] = useState<'idle' | 'working'>('idle')
+  const [shareStatus, setShareStatus] = useState<'idle' | 'working' | 'error'>('idle')
   const shareCardRef = useRef<HTMLDivElement>(null)
   const result = useMemo(() => (answers ? scoreQuiz(answers) : null), [answers])
 
@@ -83,10 +83,11 @@ function ResultPage() {
     try {
       const blob = await captureShareCardPng(shareCardRef.current)
       await shareOrDownloadPng(blob, buildShareFilename(archetype.name))
+      setShareStatus('idle')
     } catch (err) {
       console.error('[share-card] failed to export', err)
-    } finally {
-      setShareStatus('idle')
+      setShareStatus('error')
+      window.setTimeout(() => setShareStatus((s) => (s === 'error' ? 'idle' : s)), 4000)
     }
   }
 
@@ -207,7 +208,11 @@ function ResultPage() {
           onClick={handleShareImage}
           disabled={shareStatus === 'working'}
         >
-          {shareStatus === 'working' ? 'Preparing…' : 'Share Image'}
+          {shareStatus === 'working'
+            ? 'Preparing…'
+            : shareStatus === 'error'
+              ? 'Failed — Tap to Retry'
+              : 'Share Image'}
         </button>
         <Link to="/quiz" className="btn btn-primary" onClick={handleRetakeClick}>
           Retake Quiz
