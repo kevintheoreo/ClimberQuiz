@@ -1,4 +1,4 @@
-import { toBlob } from 'html-to-image'
+import { toCanvas } from 'html-to-image'
 
 /** Slugifies an archetype name into a safe download filename, e.g. "Crimp Goblin" -> "climbertype-crimp-goblin.png". */
 export function buildShareFilename(archetypeName: string): string {
@@ -58,18 +58,65 @@ async function inlineImage(img: HTMLImageElement): Promise<void> {
   await img.decode()
 }
 
+/**
+ * Position of an <img> relative to the share-card node, in CSS px — used to
+ * composite it back onto the exported canvas ourselves afterward.
+ */
+interface ImagePlacement {
+  img: HTMLImageElement
+  x: number
+  y: number
+  width: number
+  height: number
+}
+
+function getImagePlacement(node: HTMLElement, img: HTMLImageElement): ImagePlacement {
+  const nodeRect = node.getBoundingClientRect()
+  const imgRect = img.getBoundingClientRect()
+  return {
+    img,
+    x: imgRect.left - nodeRect.left,
+    y: imgRect.top - nodeRect.top,
+    width: imgRect.width,
+    height: imgRect.height,
+  }
+}
+
 /** Captures a share-card node as a PNG blob at its native pixel size. */
 export async function captureShareCardPng(node: HTMLElement): Promise<Blob> {
   await document.fonts.ready
   const images = Array.from(node.querySelectorAll('img'))
   await Promise.all(images.map(inlineImage))
 
-  const blob = await toBlob(node, {
+  // Record each image's on-screen position before html-to-image clones and
+  // rasterizes the node, since the clone won't exist afterward.
+  const placements = images.map((img) => getImagePlacement(node, img))
+
+  const canvas = await toCanvas(node, {
     width: node.offsetWidth,
     height: node.offsetHeight,
     pixelRatio: 1,
   })
 
+  // html-to-image rasterizes <img> elements by embedding them (as data:
+  // URLs by this point, already verified loadable above) inside an SVG
+  // <foreignObject>, then drawing that SVG onto this canvas. That step is
+  // known to silently drop large embedded images on some mobile
+  // browsers/WebViews — the rest of the card renders fine, but the mascot
+  // just doesn't show up, with no error anywhere. Since we already have
+  // each image fully decoded in memory (inlineImage above guarantees it,
+  // with retries), draw it directly onto the canvas ourselves as a final
+  // step. This doesn't depend on html-to-image's SVG rasterization at all,
+  // so it can't be silently skipped by it.
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    for (const { img, x, y, width, height } of placements) {
+      if (width === 0 || height === 0) continue
+      ctx.drawImage(img, x, y, width, height)
+    }
+  }
+
+  const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/png'))
   if (!blob) throw new Error('Failed to render share card image')
   return blob
 }
