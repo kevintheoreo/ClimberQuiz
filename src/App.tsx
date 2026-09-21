@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import LandingPage from './pages/LandingPage'
 import QuizPage from './pages/QuizPage'
 import ResultPage from './pages/ResultPage'
@@ -14,6 +15,7 @@ function App() {
         <Route path="/result" element={<ResultPage />} />
         <Route path="/challenge/:code" element={<ChallengePage />} />
       </Routes>
+      <Analytics />
     </div>
   )
 }
