@@ -9,28 +9,53 @@ export function buildShareFilename(archetypeName: string): string {
   return `climbertype-${slug}.png`
 }
 
+const MAX_IMAGE_FETCH_ATTEMPTS = 3
+const IMAGE_FETCH_RETRY_DELAY_MS = 350
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
 /**
- * Replaces an <img>'s src with a data: URL of its already-decoded pixels.
- * html-to-image does its own network fetch of each <img> src to inline it
- * into the SVG snapshot it builds, separate from the browser's own image
- * load — that second fetch is a known source of intermittent missing
- * images (races, cache misses) independent of decode() having succeeded.
- * Inlining ourselves removes that fetch from the equation entirely.
+ * Fetches a same-origin image URL as a data: URL, retrying a couple of
+ * times on failure. On a flaky mobile connection the <img> tag's own single
+ * load attempt (and separately, html-to-image's own internal fetch to
+ * inline it into the SVG snapshot it builds) can each fail independently —
+ * that's the source of the intermittent missing mascot on share. Fetching
+ * it ourselves, with retries, and only proceeding once we actually have the
+ * bytes in hand removes both of those races.
+ */
+async function fetchAsDataUrl(url: string): Promise<string> {
+  let lastError: unknown
+  for (let attempt = 1; attempt <= MAX_IMAGE_FETCH_ATTEMPTS; attempt++) {
+    try {
+      const response = await fetch(url)
+      if (!response.ok) throw new Error(`Image request failed: HTTP ${response.status}`)
+      const blob = await response.blob()
+      return await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve(reader.result as string)
+        reader.onerror = () => reject(reader.error ?? new Error('Failed to read image data'))
+        reader.readAsDataURL(blob)
+      })
+    } catch (err) {
+      lastError = err
+      if (attempt < MAX_IMAGE_FETCH_ATTEMPTS) await delay(IMAGE_FETCH_RETRY_DELAY_MS * attempt)
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error('Failed to fetch image')
+}
+
+/**
+ * Replaces an <img>'s src with a data: URL of its actual bytes, fetched
+ * with retries above. Throws if every attempt fails, so a share-card
+ * export with a missing mascot never silently "succeeds" — see
+ * fetchAsDataUrl for why this is necessary.
  */
 async function inlineImage(img: HTMLImageElement): Promise<void> {
   if (img.src.startsWith('data:')) return
-  try {
-    await img.decode()
-  } catch {
-    return
-  }
-  const canvas = document.createElement('canvas')
-  canvas.width = img.naturalWidth
-  canvas.height = img.naturalHeight
-  const ctx = canvas.getContext('2d')
-  if (!ctx || canvas.width === 0 || canvas.height === 0) return
-  ctx.drawImage(img, 0, 0)
-  img.src = canvas.toDataURL('image/png')
+  img.src = await fetchAsDataUrl(img.src)
+  await img.decode()
 }
 
 /** Captures a share-card node as a PNG blob at its native pixel size. */
