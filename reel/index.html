@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClimberType Stats Reel</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titan+One&family=Space+Mono:wght@400;700&family=Caveat:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+        box-sizing: border-box;
+        background: #201a12;
+        color: #efe3c8;
+        font: 14px 'Space Mono', monospace;
+      }
+      canvas {
+        height: min(80svh, 1920px);
+        aspect-ratio: 9 / 16;
+        max-width: 100%;
+      }
+      .controls {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        width: min(100%, 460px);
+      }
+      input[type='range'] {
+        flex: 1;
+      }
+      button {
+        font: inherit;
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 0;
+        background: #e8432e;
+        color: #efe3c8;
+        cursor: pointer;
+      }
+      body.render {
+        padding: 0;
+        background: none;
+      }
+      body.render canvas {
+        height: auto;
+      }
+      body.render .controls {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="reel" width="1080" height="1920"></canvas>
+    <div class="controls">
+      <button id="play">Play</button>
+      <input id="scrub" type="range" min="0" max="36" step="0.01" value="0" />
+      <span id="time">0.00s</span>
+    </div>
+    <audio id="music" src="out/music.wav" preload="auto"></audio>
+    <script type="module">
+      import { load, render, DURATION } from './reel.js'
+
+      const canvas = document.getElementById('reel')
+      const ctx = canvas.getContext('2d')
+      const audio = document.getElementById('music')
+      const scrub = document.getElementById('scrub')
+      const label = document.getElementById('time')
+      const play = document.getElementById('play')
+      const renderMode = new URLSearchParams(location.search).has('render')
+      if (renderMode) document.body.classList.add('render')
+
+      // Offline renderer hook (render.mjs).
+      window.reel = {
+        ready: load('../public/mascots'),
+        frame(t, quality = 0.95) {
+          render(ctx, t)
+          return canvas.toDataURL('image/jpeg', quality)
+        },
+      }
+
+      await window.reel.ready
+      render(ctx, 0)
+
+      // Live preview, clocked by the soundtrack so picture and music stay locked.
+      const draw = () => {
+        const t = audio.currentTime
+        render(ctx, t)
+        scrub.value = t
+        label.textContent = `${t.toFixed(2)}s`
+        if (!audio.paused) requestAnimationFrame(draw)
+      }
+      play.onclick = () => {
+        if (audio.paused) {
+          if (audio.currentTime >= DURATION - 0.05) audio.currentTime = 0
+          audio.play()
+          play.textContent = 'Pause'
+          requestAnimationFrame(draw)
+        } else {
+          audio.pause()
+          play.textContent = 'Play'
+        }
+      }
+      audio.onended = () => (play.textContent = 'Play')
+      scrub.oninput = () => {
+        audio.currentTime = Number(scrub.value)
+        draw()
+      }
+    </script>
+  </body>
+</html>
